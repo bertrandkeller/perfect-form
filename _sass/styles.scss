@@ -36,6 +36,10 @@ $info:              	    #2980b9;
   box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+}
+
 
 [data-info]::after {
   content: attr(data-info);
@@ -49,7 +53,7 @@ $info:              	    #2980b9;
 }
 
 section {
-  padding: 1em 0 4em;
+  padding: 1em 0.5em 4em;
   border-top: 1px solid $color-grey-light;
   h2 {
     text-transform: uppercase;
