@@ -1,0 +1,189 @@
+---
+title: Multi-étapes
+name: multistep
+---
+
+<form id="multistep">
+  <fieldset class="msf_hid">
+    <legend>1ère étape</legend>
+    <p>
+      <label for="firstname">First Name</label>
+      <input type="text" name="firstname" placeholder="ex. Jean">
+    </p>
+    <p>
+      <label for="lastname">Last Name</label>
+      <input type="text" name="lastname" placeholder="ex. Dupont">
+    </p>
+    <p>
+      <label for="email">Email</label>
+      <input type="email" name="email" placeholder="ex. youremail@mail.com">
+    </p>
+    <p class="form-step">
+      <input type="button" name="next" value="Next" class="button button--success" onclick="msf_btn_next()">
+    </p>
+    <div class="msf_bullet_o"></div>
+    <div class="msf_line"></div>
+  </fieldset>
+  <fieldset class="msf_hide">
+    <legend>2nd étape</legend>
+    <p>
+      <label for="school">School</label>
+      <input type="text" name="school" placeholder="School">
+    </p>
+    <p>
+      <label for="date">Date</label>
+      <input type="date" name="date" placeholder="Birthdate">
+    </p>
+    <fieldset>
+        <legend>genre</legend>
+        <span>
+          <input id="gender1" type="radio" name="gender" value="male">
+          <label for="gender1">Male</label>
+        </span>
+        <span>
+          <input id="gender2" type="radio" name="gender" value="female">
+          <label for="gender2">Female</label>
+        </span>
+      </fieldset>
+    <p class="form-step">
+      <input type="button" name="back" value="Back" class="button button--cancel" onclick="msf_btn_back()">
+      <input type="button" name="next" value="Next" class="button button--success" onclick="msf_btn_next()">
+    </p>
+    <div class="msf_bullet_o"></div>
+    <div class="msf_line"></div>
+  </fieldset>
+  <fieldset class="msf_hide">
+    <legend>3ème étape</legend>
+    <p><input type="text" name="name" placeholder="Name"></p>
+    <p><input type="email" name="email" placeholder="Email"></p>
+    <input type="button" name="back" value="Back" class="button button--cancel" onclick="msf_btn_back()">
+    <input type="button" name="next" value="Next" class="button button--success" onclick="msf_btn_next()">
+    <input type="submit" name="submit" value="Submit Now!" class="button" onclick="">
+    <div class="msf_bullet_o"></div>
+    <div class="msf_line"></div>
+  </fieldset>
+</form>
+
+<style>
+  /* For the function */
+.msf_hide{
+  display: none;
+}
+.msf_show{
+  display: block;
+}
+.msf_bullet_o{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.msf_bullet_o > div{
+  height: 15px;
+  width: 15px;
+  margin: 20px 10px;
+  border-radius: 100px;
+  z-index: 2;
+  border: 1px solid #999;
+}
+.msf_bullet{
+  background-color: #92d79a;
+
+}
+.msf_bullet_active{
+  background-color: #000 !important;
+}
+
+/* Just for decoration */
+.msf_line{
+  opacity: 0.3;
+  background: lightgrey;
+  height: 3px;
+  width: 70px;
+  display: block;
+  left: 50%;
+  margin-top: -29px;
+  margin-left: -35px;
+  position: absolute;
+  z-index: 1;
+}
+
+</style>
+
+<script>
+    //https://codepen.io/im1tta/pen/QGmYmN
+    console.log("Reloaded");
+
+    // dom variables
+    var msf_getFsTag = document.querySelectorAll("#multistep>fieldset");
+
+    // declaring the active fieldset & the total fieldset count
+    var msf_form_nr = 0;
+    var fieldset = msf_getFsTag[msf_form_nr];
+    fieldset.className = "msf_show";
+
+    // creates and stores a number of bullets
+    var msf_bullet_nr = "<div class='msf_bullet'></div>";
+    var msf_length = msf_getFsTag.length;
+    for (var i = 1; i < msf_length; ++i) {
+        msf_bullet_nr += "<div class='msf_bullet'></div>";
+    };
+    // injects bullets
+    var msf_bullet_o = document.getElementsByClassName("msf_bullet_o");
+    for (var i = 0; i < msf_bullet_o.length; ++i) {
+        var msf_b_item = msf_bullet_o[i];
+        msf_b_item.innerHTML = msf_bullet_nr;
+    };
+
+    // removes the first back button & the last next button
+    document.getElementsByName("back")[0].classList += " msf_hide";
+    document.getElementsByName("next")[msf_bullet_o.length - 1].classList += " msf_hide";
+
+    // Makes the first dot active
+    var msf_bullets = document.getElementsByClassName("msf_bullet");
+    msf_bullets[msf_form_nr].className += " msf_bullet_active";
+
+    // Validation loop & goes to the next step
+    function msf_btn_next() {
+        var msf_val = true;
+
+        var msf_fs = document.querySelectorAll("fieldset")[msf_form_nr];
+        var msf_fs_i_count = msf_fs.querySelectorAll("input").length;
+
+        for (i = 0; i < msf_fs_i_count; ++i) {
+            var msf_input_s = msf_fs.querySelectorAll("input")[i];
+            if (msf_input_s.getAttribute("type") === "button") {
+                // nothing happens
+            } else {
+                if (msf_input_s.value === "") {
+                    msf_input_s.style.backgroundColor = "pink";
+                    msf_val = false;
+                } else {
+                    if (msf_val === false) {} else {
+                        msf_val = true;
+                        msf_input_s.style.backgroundColor = "lime";
+                    }
+                }
+            };
+        };
+        if (msf_val === true) {
+            // goes to the next step
+            var selection = msf_getFsTag[msf_form_nr];
+            selection.className = "msf_hide";
+            msf_form_nr = msf_form_nr + 1;
+            var selection = msf_getFsTag[msf_form_nr];
+            selection.className = "msf_show";
+            // refreshes the bullet
+            var msf_bullets_a = msf_form_nr * msf_length + msf_form_nr;
+            msf_bullets[msf_bullets_a].className += " msf_bullet_active";
+        }
+    };
+
+    // goes one step back
+    function msf_btn_back() {
+        msf_getFsTag[msf_form_nr].className = "msf_hide";
+        msf_form_nr = msf_form_nr - 1;
+        msf_getFsTag[msf_form_nr].className = "msf_showhide";
+    };
+
+    console.log("loaded");
+</script>

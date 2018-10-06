@@ -1,0 +1,37 @@
+@mixin sassy-button {
+  box-sizing: border-box;
+
+  cursor: pointer;
+  display: inline-block;
+  display: inline-flex;
+	align-items: center;
+	justify-content: center;
+  padding: $base-line $base-line*2;
+  font-family: $title-font-family;
+  font-size: 1em;
+  letter-spacing: 2px;
+  text-decoration: none;
+  font-weight: bold;
+  //color: currentColor;
+  transition: background .15s;
+  border-radius: 0;
+  border-width: 4px;
+
+  &:hover,&:active,&:visited {
+    text-decoration: none;
+    outline: none;
+  }
+
+  &:disabled {
+    color: darken($sassy-disabled-color, 30%);
+    background-color: $sassy-disabled-color;
+    cursor: not-allowed;
+
+    &:hover, &:focus {
+      box-shadow: none;
+    }
+  }
+  &[class^="button--"] {
+    color: #fff;
+  }
+}

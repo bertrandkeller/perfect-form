@@ -1,0 +1,28 @@
+---
+title: Invitation
+name: autocomplete
+type: subscription
+---
+<form class="form-subscription">
+  <fieldset>
+    <legend>Envoyer une invitation - use datalist</legend>
+    <p>
+      <label for="login_email">Adresse e-mail de votre collaborateur</label>
+      <input class="awesomplete" type="text" list="mylist" placeholder="ex. johnny@faitmoimal.vian"/>
+      <datalist id="mylist">
+        <option>jean-jacques@supernous.fr</option>
+        <option>tony@supernous.fr</option>
+        <option>rene@supernous.fr</option>
+        <option>tomas@supernous.fr</option>
+        <option>andreassy@supernous.fr</option>
+        <option>robertoro@supernous.fr</option>
+        <option>kikoulolou@supernous.fr</option>
+      </datalist>
+    </p>
+    <p class="form-submit">
+      <input type="submit" class="button button--success" value="Inviter">
+    </p>
+  </fieldset>
+</form>
+
+<!-- <script src="/assets/awesomplete.js"></script> -->

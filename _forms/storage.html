@@ -1,0 +1,33 @@
+---
+title: Storage
+name: storage
+published: false
+---
+<form class="js-form-storage">
+  <fieldset>
+    <legend>Storage</legend>
+    <p>
+      <label for="storage_name"><abbr class="symbol-required">* </abbr>Nom</label>
+      <input type="text" name="storage_name" placeholder="Indiquez votre nom" data-value-missing="Veuillez remplir un nom explicite pour ce champ."
+        required>
+      <span class="form-description">Veuillez remplir un nom explicite pour ce champ.</span>
+    </p>
+    <p>
+      <label for="storage_email"><abbr class="symbol-required">* </abbr>Email - contrôle de conformité</label>
+      <input type="email" name="storage_email" placeholder="ex. votre@email.com" autocomplete="email" pattern="^(([-\w\d]+)(\.[-\w\d]+)*@([-\w\d]+)(\.[-\w\d]+)*(\.([a-zA-Z]{2,5}|[\d]{1,3})){1,2})$">
+      <span class="form-description">Veuillez remplir un email valide.</span>
+    </p>
+    <p>
+      <label for="storage_password">Mot de passe - contrôle de complexité</label>
+      <input type="password" name="storage_password" placeholder="Indiquez un mot de passe" autocomplete="new-password">
+      <span class="form-description">Indiquez un mot de passe à plus de 6 caractères.</span>
+    </p>
+    <p class="form-more">
+      <input type="checkbox" id="storage_confirm" class="js-persist">
+      <label for="storage_confirm">Allow saving form-data to localstorage.</label>
+    </p>
+    <p class="form-submit">
+      <input type="submit" class="button button--success" value="Valider">
+    </p>
+  </fieldset>
+</form>

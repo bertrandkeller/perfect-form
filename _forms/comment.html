@@ -1,0 +1,34 @@
+---
+title: Commentaires
+name: comment
+---
+
+<form>
+  <fieldset>
+    <legend>Commentaire - Limit Textarea fill</legend>
+    <p>
+      <label for="demo_comment">Commentaire - limitation de caractères - <b data-balloon="Indiquez un commentaire pour participer à ce fil de discussion" data-balloon-pos="up">Help ?</b></label>
+      <textarea name="demo_comment" placeholder="Un petit commentaire à partager" rows="8"></textarea>
+      <p>Nombre de caractères de votre message <span class="counter">0/200</span></p>
+    </p>
+    <p>
+      <input type="checkbox" id="confirm">
+      <label for="confirm">Send a copy to yourself</label>
+    </p>
+    <p class="form-submit">
+      <input class="button button--success" type="submit" value="Envoyer mon Commenter">
+    </p>
+  </fieldset>
+</form>
+
+<script>
+  var textEl = document.querySelector('textarea')
+  var counterEl = document.querySelector('.counter')
+  var maxLength = 200
+
+  textEl.setAttribute('maxlength', maxLength)
+  textEl.addEventListener('input', (val) => {
+    var count = textEl.value.length;
+    counterEl.innerHTML = count + '/' + maxLength
+  })
+</script>

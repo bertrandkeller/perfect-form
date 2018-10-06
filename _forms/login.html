@@ -1,0 +1,28 @@
+---
+title: Login
+name: login
+type: subscription
+---
+<form method="post" class="form-subscription">
+  <fieldset>
+    <legend>Se connecter - Générer un code sécurisé</legend>
+    <p class="form-note">
+      Pour plus de facilité et de sécurité, le site propose un système de connexion sans mot de passe à retenir.<br>
+    </p>
+    <p class="form-note">
+      Saisisez votre adresse e-mail, nous vous enverrons un code unique d’authentification (par e-mail) pour vous
+      connecter à <i>ce site</i>.<br>
+    </p>
+    <p>
+      <label for="login_email">Votre adresse e-mail</label>
+      <input type="email" name="login_email" id="login_email" placeholder="ex. example@mail.com" value="" required="">
+    </p>
+    <p class="form-more">
+      &gt; Pour découvrir les ressources de <i>ce site</i>, <a href="#" class="link--important">inscrivez-vous
+        !</a>
+    </p>
+    <p class="form-submit">
+      <input type="submit" class="button button--success" value="Valider">
+    </p>
+  </fieldset>
+</form>

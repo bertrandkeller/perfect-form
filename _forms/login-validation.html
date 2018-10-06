@@ -1,0 +1,186 @@
+---
+title: Login Validation
+name: loginvalidate
+---
+<form class="form-subscription">
+  <fieldset>
+    <legend>Connectez vous</legend>
+    <p>
+      <label for="email">Courriel<span class="form__required">requis</span></label>
+      <input id="email" type="text" name="email" required
+        pattern="[^]+@[^]+[.][a-z]{2,63}$"
+        autocomplete="email"
+        data-error="Utiliser une adresse conforme"
+        data-empty="Ce champ doit être complété">
+    </p>
+    <p class="form-action">
+      <label for="password">Mot de passe<span class="form__required">requis</span></label>
+
+      <svg class="icon"><use xlink:href="#icon-mail_outline"></use></svg>
+
+      <input data-toggle-password-field id="password" type="password" name="password" required
+        minlength="8"
+        aria-describedby="passwordHint"
+        autocomplete="current-password"
+        data-error="Compléter avec 8 caractères"
+        data-empty="Ce champ doit être complété">
+
+      <button type="button" class="form__toggle-password button button--info" hidden
+        aria-pressed="false"
+        data-toggle-password>
+        <span>Voir</span>
+      </button>
+    </p>
+    <p class="note" id="passwordHint">Le mot de passe devrait contenir au moins 8 caractères</p>
+    <p><a href="#">Forgot password?</a></p>
+    <p class="form-submit">
+      <input class="button button--success" type="submit" value="Connexion">
+    </p>
+  </fieldset>
+</form>
+{% include ico.html %}
+<style>
+  .form__element-inner {
+    position: relative;
+  }
+
+  .form__toggle-password {
+    padding: .2em;
+  }
+
+  .form__error {
+    display: block;
+    margin: 0;
+    padding: 0.4em;
+    color: #b0141d;
+    background-color: #fbd8d8;
+  }
+
+  .form__required {
+    display: inline-block;
+    float: right;
+    font-size: 0.8em;
+    background: #ddd;
+    padding: 0.3em;
+  }
+  form .icon {
+    position: relative;
+    display: inline-block;
+    padding: .5em .5em;
+    width: 3em;
+    height: 3em;
+    align-self: center;
+    fill: #025095;
+    background: #fff;
+    border: 2px solid #025095;
+    box-shadow: 1px 0px 0 0px #fff;
+  }
+</style>
+<script>
+  // https://github.com/justmarkup/demos/blob/gh-pages/enhance-login-form/v6/script.js
+  // cut the mustard
+  var form = document.createElement('form');
+  if ('checkValidity' in form && 'querySelector' in document && 'classList' in document.documentElement) {
+
+    // feedback messages
+    var messageComponents = document.querySelectorAll("[data-message]");
+
+    if (messageComponents.length > 0) {
+
+      [].forEach.call(messageComponents, function (message) {
+        var messageButton = message.querySelector("[data-close-notification]");
+
+        messageButton.removeAttribute('hidden');
+
+        messageButton.addEventListener("click", function () {
+          this.parentElement.hidden = true;
+        });
+      });
+    }
+
+    // form validation
+    var inputs = document.querySelectorAll("[data-error]");
+
+    if (inputs.length > 0) {
+
+      var toggleErrorMessage = function (input, hasError) {
+        var message = (input.value === '') ? input.dataset.empty : input.dataset.error;
+        var oldMessage = document.getElementById("alert-" + input.name);
+        var newMessage;
+
+        if (hasError) {
+          if (!oldMessage) {
+            newMessage = document.createElement("span");
+            newMessage.setAttribute('role', 'alert');
+            newMessage.classList.add('form__error');
+            newMessage.setAttribute('id', 'alert-' + input.name);
+          } else {
+            newMessage = oldMessage;
+          }
+
+
+          newMessage.innerText = message;
+
+          input.setAttribute('aria-describedby', 'alert-' + input.name);
+          input.parentElement.appendChild(newMessage);
+
+          input.parentElement.classList.add('has-error');
+        } else {
+
+          if (oldMessage) {
+            input.parentElement.removeChild(oldMessage);
+            input.removeAttribute('aria-describedby');
+            input.parentElement.classList.remove('has-error');
+          }
+
+        }
+      };
+
+      [].forEach.call(inputs, function (input) {
+
+        input.addEventListener("blur", function (event) {
+
+          if (event.relatedTarget && event.relatedTarget.nodeName === 'BUTTON') {
+            return;
+          }
+
+          input.checkValidity();
+
+          if (input.checkValidity()) {
+            input.classList.remove("error");
+            input.setAttribute("aria-invalid", "false");
+            toggleErrorMessage(input, false);
+          } else {
+            input.classList.add("error");
+            input.setAttribute("aria-invalid", "true");
+            toggleErrorMessage(input, true);
+          }
+        });
+      });
+    }
+
+    // toggle password field between type="text" and type="password"
+    var togglePasswordButton = document.querySelector('[data-toggle-password]');
+
+    if (togglePasswordButton) {
+      var togglePasswordButtonText = togglePasswordButton.querySelector('span');
+      var passwordField = document.querySelector('[data-toggle-password-field]');
+      togglePasswordButton.removeAttribute('hidden');
+
+
+      togglePasswordButton.addEventListener('click', function () {
+        var isPressed = JSON.parse(this.getAttribute('aria-pressed'));
+
+        if (isPressed) {
+          passwordField.setAttribute('type', 'password');
+          this.setAttribute('aria-pressed', false);
+          togglePasswordButtonText.textContent = 'Voir';
+        } else {
+          passwordField.setAttribute('type', 'text');
+          this.setAttribute('aria-pressed', true);
+          togglePasswordButtonText.textContent = 'Cacher';
+        }
+      });
+    }
+  }
+</script>

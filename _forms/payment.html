@@ -1,0 +1,53 @@
+---
+title: Mode de réglement
+name: payment
+type: subscription
+---
+
+<form class="form-subscription">
+  <fieldset>
+    <legend>Mode de réglement</legend>
+    <div class="form-int_card">
+      {% include card.html %}
+      <p>
+        <label for="source_card_number">Numéro de carte *</label>
+        <input id="card-exp-number" name="source_card_number" type="text" class="form-input__cardnumber" placeholder="8888 8888 8888 8888"
+          required="" value="">
+      </p>
+      <p>
+        <label for="source_card_cvc">Code à 3 chiffres *</label>
+        <input id="card-exp-secret" name="source_card_cvc" type="text" class="form-input__small" placeholder="NNN"
+          required="" maxlength="6">
+      </p>
+      <p>
+        <label>Date d'expiration *</label>
+        <input id="card-exp-mm" name="source_card_exp_month" type="text" class="form-input__small" placeholder="MM"
+          required="" maxlength="2" value=""><span> / </span><input id="card-exp-yy" name="source_card_exp_year" type="text"
+          class="form-input__small" placeholder="YY" required="" maxlength="2" value="">
+      </p>
+    </div>
+    <p class="form-submit">
+      <a href="/abonnements" class="button button--cancel">Annuler la commande</a>
+      <input type="submit" value="Régler" class="button button--success">
+    </p>
+  </fieldset>
+</form>
+
+<script src="/assets/cleave.min.js"></script>
+<script>
+  var cleave = new Cleave('#card-exp-number', {
+    creditCard: true,
+  });
+  var cleave = new Cleave('#card-exp-secret', {
+    numeral: true,
+    numeralThousandsGroupStyle: 'thousand'
+  });
+  var cleave = new Cleave('#card-exp-mm', {
+    date: true,
+    datePattern: ['m']
+  });
+  var cleave = new Cleave('#card-exp-yy', {
+    date: true,
+    datePattern: ['y']
+  });
+</script>

@@ -1,0 +1,38 @@
+---
+title: Souscrire
+name: subscribe
+type: subscription
+---
+<form method="post" class="form-subscription">
+  <fieldset>
+    <legend>S'inscrire à ce site</legend>
+    <fieldset>
+      <legend>Informations personnelles</legend>
+      <p class="form-note">
+        Ces informations servent à la communication avec nos usagers.<br>Elles ne font l'objet d'aucune relation avec
+        des services tiers.
+      </p>
+      <p>
+        <label for="metadata_firstname">Votre prénom</label>
+        <input type="text" id="metadata_firstname" name="metadata[firstname]" title="Indiquer votre prénom" placeholder="ex. Jean"
+          value="">
+      </p>
+      <p>
+        <label for="metadata_lastname">Votre nom</label>
+        <input type="text" id="metadata_lastname" name="metadata[lastname]" title="Indiquer votre nom" placeholder="ex. Dupont"
+          value="">
+      </p>
+      <p>
+        <label for="email">Adresse email *</label>
+        <input type="email" id="email" name="email" title="Indiquer votre email" placeholder="ex. jean.dupont@example.com"
+          value="" required="">
+      </p>
+    </fieldset>
+    <p class="form-more">
+      &gt; <a href="#" class="link--important">Je suis déjà inscrit</a>
+    </p>
+    <p class="form-submit">
+      <input type="submit" class="button button--success" value="Valider">
+    </p>
+  </fieldset>
+</form>

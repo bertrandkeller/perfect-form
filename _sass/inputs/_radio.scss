@@ -1,0 +1,70 @@
+@mixin sassy-radio {
+  position: absolute;
+  left: -1000rem;
+
+  + label {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin-right: $base-line;
+    padding-left: $base-line*3/2;
+    line-height: 1;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 5%;
+      height: 1em;
+      width: 1em;
+      border-radius: 50%;
+      font-family: sans-serif;
+      border: 3px solid $sassy-base-color;
+    }
+
+    &::after {
+      content: '';
+      transition: background-color 0.3s;
+    }
+  }
+
+  &:focus + label {
+    text-decoration: underline;
+  }
+
+  &:checked + label::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 5%;
+    height: 1em;
+    width: 1em;
+    border-radius: 50%;
+    background-color: $sassy-accent-color;
+    border: 3px solid #fff;
+    text-align: center;
+    transform: scale(0.7);
+  }
+
+  &:focus + label::after {
+    background-color: $sassy-accent-color;
+  }
+
+  // &:focus + label::before {
+  //   border-color: $sassy-accent-color;
+  // }
+
+  &:disabled {
+    + label {
+      cursor: not-allowed;
+
+      &::before {
+        background-color: $sassy-disabled-color;
+      }
+    }
+
+    &:checked + label::after {
+      background-color: darken($sassy-disabled-color, 30%);
+    }
+  }
+}

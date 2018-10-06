@@ -1,0 +1,61 @@
+---
+title: Adresse de livraison
+name: deliver
+---
+<form>
+  <fieldset>
+    <legend>Adresse de livraison</legend>
+    <p class="note">Les champs marqués d’un <abbr class="symbol-required">* </abbr>sont obligatoires.</p>
+    <p>
+      <label for="shipping_name"><abbr class="symbol-required">* </abbr>Destinataire</label>
+      <input type="text" id="shipping_name" name="shipping[name]" title="Indiquez le destinataire" placeholder="ex. Jean Dupont">
+    </p>
+    <p>
+      <label for="shipping_address_line2"><abbr class="symbol-required">* </abbr>Rue - aide à la rédaction</label>
+      <input type="text" id="shipping_address_line1" name="shipping[address][line1]" title="Indiquer votre adresse"
+        placeholder="ex. 3 rue du chemin">
+    </p>
+    <p>
+      <label for="shipping_address_line2">Rue (complément)</label>
+      <input type="text" id="shipping_address_line2" name="shipping[address][line2]" title="Indiquer un complément d'adresse"
+        placeholder="ex. 3 rue du chemin">
+    </p>
+    <p>
+      <label for="shipping_address_postal_code"><abbr class="symbol-required">* </abbr>Code postal</label>
+      <input type="text" id="shipping_address_postal_code" name="shipping[address][postal_code]" class="form-input__medium" title="Indiquer votre code postal"
+        placeholder="ex. 92000">
+    </p>
+    <p>
+      <label for="shipping_address_city"><abbr class="symbol-required">* </abbr>Ville</label>
+      <input type="text" id="shipping_address_city" name="shipping[address][city]" title="Indiquer votre ville"
+        placeholder="ex. Paris">
+    </p>
+    <p>
+      <label for="shipping_address_country"><abbr class="symbol-required">* </abbr>Pays</label>
+      <input type="text" id="shipping_address_country" name="shipping[address][country]" placeholder="ex. France">
+    </p>
+    <p class="form-submit">
+      <input class="button button--success" type="submit" value="Valider">
+    </p>
+  </fieldset>
+</form>
+
+<script src="https://cdn.jsdelivr.net/places.js/1/places.min.js"></script>
+<script>
+  (function () {
+    var placesAutocomplete = places({
+      container: document.querySelector('#shipping_address_line1'),
+      type: 'address',
+      templates: {
+        value: function (suggestion) {
+          return suggestion.name;
+        }
+      }
+    });
+    placesAutocomplete.on('change', function resultSelected(e) {
+      //document.querySelector('#form-address2').value = e.suggestion.administrative || '';
+      document.querySelector('#shipping_address_city').value = e.suggestion.city || '';
+      document.querySelector('#shipping_address_postal_code').value = e.suggestion.postcode || '';
+    });
+  })();
+</script>

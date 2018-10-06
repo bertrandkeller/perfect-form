@@ -1,0 +1,67 @@
+@mixin sassy-select {
+  position: relative;
+  display: block;
+  color: inherit;
+
+  &::after {
+    content: '\25BE';
+    position: absolute;
+    top: $base-line/4;
+    right: $base-line;
+    color: $sassy-base-color;
+  }
+
+  /* Target IE9 and IE10 */
+  select::-ms-expand {
+    display: none;
+  }
+
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    padding: .45em $base-line/2;
+    font-family: inherit;
+    font-size: 1em;
+
+    border: 1px solid lighten($sassy-base-color, 10%);
+    border-radius: 4px;
+    outline: none;
+
+    background-color: white;
+
+    &:focus {
+      border-color: $sassy-accent-color;
+    }
+
+    &:disabled {
+      background-color: $sassy-disabled-color;
+      cursor: not-allowed;
+    }
+  }
+}
+
+@mixin sassy-select-multiple {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  width: 100%;
+  padding: 0 $base-line/2;
+  margin-bottom: $base-line/2;
+  font-family: inherit;
+
+  border: 1px solid lighten($sassy-base-color, 10%);
+  border-radius: 3px;
+  outline: none;
+
+  background-color: white;
+
+  &:focus {
+    border-color: $sassy-accent-color;
+  }
+
+  &:disabled {
+    background-color: $sassy-disabled-color;
+    cursor: not-allowed;
+  }
+}

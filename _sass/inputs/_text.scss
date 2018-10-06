@@ -1,0 +1,84 @@
+@mixin sassy-text {
+  box-sizing: border-box;
+
+  padding: $base-line/2;
+  font-family: inherit;
+  font-size: 1em;
+  vertical-align: middle;
+
+  border: 2px solid lighten($sassy-base-color, 0%);
+  outline: none;
+
+  &:focus {
+    border-color: $sassy-accent-color;
+  }
+
+  &:optional {
+    border-color: $color-grey-light;
+  }
+
+  &:required {
+    border-color: $color-grey-dark;
+  }
+
+  &:disabled {
+    background-color: $sassy-disabled-color;
+    cursor: not-allowed;
+  }
+
+
+}
+
+@mixin sassy-number-control {
+  fieldset & {
+    &:not(:placeholder-shown):in-range {
+      box-shadow: 0 0 1px 0px mix(#fff, $green, 60%);
+      border-color: mix(#fff, $green, 60%);
+    }
+    &:not(:placeholder-shown):out-of-range {
+      box-shadow: 0 0 1px 0px mix(#fff, $red, 60%);
+      border-color: mix(#fff, $red, 60%);
+    }
+  }
+}
+
+@mixin sassy-text-control {
+  &:focus {
+    fieldset & {
+      & {
+        box-shadow: 0px 0px 6px 0px $red;
+        border-color: $red;
+      }
+      &:invalid {
+        box-shadow: 0 0 1px 1px $red;
+        border-color: $red;
+      }
+      &:not(:placeholder-shown) {
+        box-shadow: 0 0 3px 0px $green;
+        border-color: mix(#fff,$green,10%);
+      }
+    }
+  }
+
+  fieldset & {
+    &:not(:placeholder-shown):valid {
+      box-shadow: 0 0 1px 0px mix(#fff,$green,60%);
+      border-color: mix(#fff,$green,60%);
+    }
+  }
+}
+
+@mixin sassy-search {
+  @include sassy-text;
+  @include sassy-text-control;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+}
+
+@mixin sassy-textarea {
+  @include sassy-text;
+
+  display: block;
+  overflow: auto;
+  background-size: 4% 38%;
+}

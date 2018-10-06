@@ -1,0 +1,126 @@
+////
+/// Typography
+////
+
+// Our variables
+//-------------------------------------
+$base-font-name:          -apple-system !default;
+$title-font-name:         -apple-system !default;
+$base-font-family:        $base-font-name, system, sans-serif !default;
+$title-font-family:       $title-font-name, system, sans-serif !default;
+
+$ratio:                   1.125;
+$base:                    1;
+$base-em:                 $base * 1em;
+$base-px:                 $base * 16px;
+
+$ms0:                     1;
+$ms1:                     $ratio;        /* 1.2   */
+$ms2:                     $ratio * $ms1; /* 1.44  */
+$ms3:                     $ratio * $ms2; /* 1.728 */
+$ms4:                     $ratio * $ms3; /* 2.074 */
+$ms5:                     $ratio * $ms4; /* 2.488 */
+$ms6:                     $ratio * $ms5; /* 2.986 */
+$ms7:                     $ratio * $ms6; /* 3.583 */
+
+$smaller:                 $base-em / $ms1;
+$normal:                  $base-em * $ms0;
+$bigger:                  $base-em * $ms1;
+$title3:                  $base-em * $ms2;
+$title2:                  $base-em * $ms3;
+$title1:                  $base-em * $ms5;
+
+$line-height-base:        $base * $ms2;
+$base-line:               floor(($base-em * $line-height-base));
+
+body {
+  font-family: $base-font-family;
+  font-size: $normal;
+  line-height: 1.647em;
+  font-weight: 300;
+  //font-size: calc(4vw + 4vh + 2vmin)
+}
+
+h3,
+h2,
+h1 { line-height: $base * $ms1; }
+
+h6, .h6 { font-size: $smaller; }
+h5, .h5 { font-size: $normal; }
+h4, .h4 { font-size: $bigger; }
+h3, .h3 { font-size: $title3; }
+h2, .h2 { font-size: $title2; }
+h1, .h1 { font-size: $title1; }
+
+@media #{$medium-up} {
+  body {
+    font-size: $base-em * $ms0;
+  }
+}
+
+@media #{$large-up} {
+  body {
+    font-size: $base-em * $ms1;
+  }
+}
+
+@media #{$xlarge-up} {
+  body {
+    font-size: $base-em * $ms2;
+  }
+}
+
+@media #{$xxlarge-up} {
+  body {
+    font-size: $base-em * $ms3;
+  }
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+label, legend {
+  @if $title-font-name {
+    font-family: $title-font-family;
+  }
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+  word-wrap: break-word;
+  margin-top: $base-line;
+  margin-bottom: ($base-line / 2);
+
+  small,
+  .small {
+    font-size: 65%;
+  }
+}
+
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  margin-top: ($base-line / 2);
+  margin-bottom: ($base-line / 2);
+
+  small,
+  .small {
+    font-size: 75%;
+  }
+}
+
+h1,h2,h3,h4,h5,h6 {
+  color: currentColor;
+  &,a,a:visited {
+    color: currentColor;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+p {
+  margin: 0 0 ($base-line / 2);
+}

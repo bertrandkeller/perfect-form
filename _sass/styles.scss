@@ -1,0 +1,117 @@
+$sassy-base-color: #777 !default;
+$sassy-accent-color: #111 !default;
+$sassy-disabled-color: #eee !default;
+
+$text-color:              #111;
+$background-color:        #fdfdfd;
+
+$color-primary:           #279c38;
+$color-primary-light:     #e1e7d5;
+$color-primary-dark:      #006747;
+$color-primary-pastel:    #55866f;
+
+$color-secondary:         #025095;
+$color-secondary-dark:    #11152D;
+$color-secondary-light:   #d0d5de;
+$color-secondary-pastel:  #1a3c4e;
+
+$color-grey:              #a7abbb;
+$color-grey-light:        #E8ECF3;
+$color-grey-dark:         #5f6283;
+
+$default:              	  transparent;
+$success:                 $color-secondary-dark;
+$danger:            	    #c0392b;
+$warning:            		  #f1c40f;
+$info:              	    #2980b9;
+
+@import "colors";
+@import "open-color";
+@import "mediaqueries";
+@import "typography";
+@import "form";
+
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+
+[data-info]::after {
+  content: attr(data-info);
+  display: inline-block;
+  margin: 0 1rem;
+  color: gray;
+}
+.card-image svg {
+  width: 50px;
+  height: auto;
+}
+
+section {
+  padding: 1em 0 4em;
+  border-top: 1px solid $color-grey-light;
+  h2 {
+    text-transform: uppercase;
+    text-shadow: 1px 1px $color-grey-light;
+  }
+}
+
+.subscription {
+  background: #f1f1f1;
+  background: radial-gradient(#fff 0%, $color-grey-light 15%, $color-secondary-light 50%);
+  h2 {
+
+    text-shadow: 1px 1px $color-grey;
+  }
+}
+
+.container {
+  margin: auto;
+  max-width: 50rem;
+}
+
+.image-content {
+  margin: 0 auto 4rem;
+  max-width: 80rem;
+  max-height: 100%;
+}
+
+a {
+  color: $color-secondary;
+  text-decoration: none;
+}
+
+h1 {
+  margin: 10rem 0 1rem;
+  color: $color-secondary;
+  text-align: center;
+  font-size: 5rem;
+}
+
+h2 {
+  margin: 5rem 0 1rem;
+  color: $color-secondary;
+  text-align: center;
+  width: 100%;
+  font-size: 3rem;
+}
+
+//broken link styles!
+a[href="#"] {
+  position: relative;
+  &:after {
+    content: 'Lien cassé';
+    text-transform: uppercase;
+    font-family: Courier;
+    font-size: .625rem;
+    position: absolute;
+    left: 30px;
+    top: -7px;
+    box-shadow: 0px 1px 3px 0px slateblue;
+    color: black;
+    padding: 3px;
+    transform: rotate(-17deg);
+    background-color: yellow;
+  }
+}
