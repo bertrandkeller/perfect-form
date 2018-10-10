@@ -15,7 +15,7 @@
   <link rel="shortcut icon" href="favicon.ico">
 </head>
 
-<body class="expand-v wide crop-x">
+<body>
   <section class="container">
     <h1>Le formulaire parfait</h1>
     <h2>Types de formulaires</h2>
@@ -31,61 +31,19 @@
     {{ form }}
   </section>
   {% endfor %}
-  <!-- <p>Hyperform - Algolia Search - Text mask - cleave - description (en haut) - accessibilité - WAIARIA - erreurs - Password Strength</p> -->
+
   <div class="container">
-    <h2>Contrôle possible</h2>
-    <ul>
-      <li>Hyperform - OK</li>
-      <li>Address Complete : Algolia Search - OK</li>
-      <li>Persistence : garlic - NO</li>
-      <li>Autocompletion - OK</li>
-      <li>Focus within - OK</li>
-      <li>Limit Textarea fill - OK</li>
-      <li>Placeholder-shown - OK</li>
-      <li>Mask : Text mask - Cleave</li>
-      <li>Help Text - NOK</li>
-      <li>Form storage - https://appleple.github.io/form-storage/</li>
-      <li>States : focus - optionnal - required - disabled - in-range - out-of-range - valid - invalid</li>
-      <li>Inline validation - OK</li>
-      <li>Password Strength - NO</li>
-      <li>Formulaire pour recouvrir un mot de passe  - OK</li>
-      <li>Autocomplete - https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete - OK</li>
-    </ul>
-    <h2>Ressources en vrac</h2>
-    <ul>
-      <li>https://www.smashingmagazine.com/2018/08/ux-html5-mobile-form-part-1/</li>
-      <li>https://www.smashingmagazine.com/2018/08/ux-html5-mobile-form-part-2/</li>
-      <li>https://medium.com/samsung-internet-dev/making-input-type-date-complicated-a544fd27c45a</li>
-      <li>https://developer.mozilla.org/fr/docs/Web/Guide/HTML/Formulaires/Validation_donnees_formulaire</li>
-      <li>https://uxplanet.org/the-18-must-do-principles-in-the-form-design-fe89d0127c92</li>
-      <li>https://bunnyjs.com/</li>
-      <li>http://garlicjs.org/ - persist your forms</li>
-      <li>https://css-tricks.com/form-validation-part-1-constraint-validation-html/</li>
-      <li>https://github.com/dropbox/zxcvbn - https://css-tricks.com/password-strength-meter/</li>
-      <li>https://github.com/idriskhenchil/Fort.js</li>
-      <li>https://github.hubspot.com/select/docs/welcome/</li>
-      <li>Dynamic Placeholders - https://codepen.io/joelewis/pen/ePOrmV</li>
-      <li>http://zdfs.github.io/toscani/paymentInfo/index.html</li>
-      <li>https://medium.com/the-ui-files/form-validation-with-javascript-4fcf4dd32846</li>
-      <li>https://uxplanet.org/10-rules-for-efficient-form-design-e13dc1fb0e03</li>
-    </ul>
+    {% for page in site.html_pages %}
+      {% if page.path contains 'ressources' %}
+      {{ page.content | markdownify }}
+      {% endif %}
+    {% endfor %}
   </div>
   <script src="/assets/hyperform.min.js"></script>
   <script>
     hyperform(window);
   </script>
-  <!-- <script src="/assets/passwordMeter.js"></script> -->
-  <!-- <script src="https://unpkg.com/form-storage@1.2.0/build/form-storage.js" crossorigin></script> -->
   <!-- <script>
-      new FormStorage('.js-form-storage', {
-        name: 'form-storage', //localstorage name
-        ignores: [ // The selectors specified here, won't be stored in the storage.
-          '[type="password"]'
-        ],
-        checkbox: '.js-persist' //if the selector specified here is checked, the form data will be stored.
-      });
-  </script>
-  <script>
       // Ne prend en compte que les input (pas les textarea)
       localStorage._formData_ = JSON.stringify(Array.from(document.forms[0].querySelectorAll('input')).map((el) => el.value));
 

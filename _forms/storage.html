@@ -3,6 +3,7 @@ title: Storage
 name: storage
 published: false
 ---
+
 <form class="js-form-storage">
   <fieldset>
     <legend>Storage</legend>
@@ -31,3 +32,16 @@ published: false
     </p>
   </fieldset>
 </form>
+
+<!--
+<script src="https://unpkg.com/form-storage@1.2.0/build/form-storage.js" crossorigin></script>
+<script>
+    new FormStorage('.js-form-storage', {
+      name: 'form-storage', //localstorage name
+      ignores: [ // The selectors specified here, won't be stored in the storage.
+        '[type="password"]'
+      ],
+      checkbox: '.js-persist' //if the selector specified here is checked, the form data will be stored.
+    });
+</script>
+-->
