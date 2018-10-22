@@ -82,6 +82,9 @@ title: Ressources
 - https://medium.com/samsung-internet-dev/making-input-type-date-complicated-a544fd27c45a
 - http://uxmovement.com/forms/bad-practices-on-birthdate-form-fields/
 
+### Zipcode
+https://css-tricks.com/html-for-zip-codes/
+
 ### Validation
 - https://developer.mozilla.org/fr/docs/Web/Guide/HTML/Formulaires/Validation_donnees_formulaire
 - https://css-tricks.com/form-validation-part-1-constraint-validation-html/
