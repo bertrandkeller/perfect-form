@@ -7,6 +7,7 @@ title: Ressources
 ### HTML attribute
 - Autocomplete - https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
 - Datalist - https://developer.mozilla.org/fr/docs/Web/HTML/Element/datalist
+- Input type - https://www.smashingmagazine.com/2019/01/html5-input-types/
 
 ### CSS
 - Form or fieldset :
@@ -33,6 +34,7 @@ title: Ressources
 
 ### Persist
 - Garlic - http://garlicjs.org/
+- HTML Form Persistence - https://github.com/FThompson/FormPersistence.js
 
 ### Paiement
 - PaymentInfo - http://zdfs.github.io/toscani/paymentInfo/index.html
