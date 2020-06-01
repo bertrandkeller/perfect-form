@@ -74,11 +74,16 @@ title: Ressources
 
 ## Articles
 
+### Accessiblity
+- https://webaim.org/techniques/forms/
+- https://stegosource.com/how-to-build-html-forms-right-accessibility/
+
 ### UX
 - https://www.smashingmagazine.com/2018/08/ux-html5-mobile-form-part-1/
 - https://www.smashingmagazine.com/2018/08/ux-html5-mobile-form-part-2/
 - https://uxplanet.org/the-18-must-do-principles-in-the-form-design-fe89d0127c92
 - https://uxplanet.org/10-rules-for-efficient-form-design-e13dc1fb0e03
+- https://adamsilver.io/articles/where-to-put-buttons-in-forms/
 
 ### Date
 - https://medium.com/samsung-internet-dev/making-input-type-date-complicated-a544fd27c45a
@@ -101,6 +106,5 @@ https://css-tricks.com/html-for-zip-codes/
 
 
 ## Books
-
 - "Form Design Patterns" by Adam Silver - https://formdesignpatterns.com/
 - "Web Form Design" by Luke Wroblewski - https://www.lukew.com/resources/web_form_design.asp
