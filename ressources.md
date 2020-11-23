@@ -77,6 +77,8 @@ title: Ressources
 ### Accessiblity
 - https://webaim.org/techniques/forms/
 - https://stegosource.com/how-to-build-html-forms-right-accessibility/
+- https://austingil.com/build-html-forms-right-user-experience/
+- https://www.bram.us/2020/11/04/preventing-double-form-submissions/
 
 ### UX
 - https://www.smashingmagazine.com/2018/08/ux-html5-mobile-form-part-1/
@@ -90,7 +92,10 @@ title: Ressources
 - http://uxmovement.com/forms/bad-practices-on-birthdate-form-fields/
 
 ### Zipcode
-https://css-tricks.com/html-for-zip-codes/
+ - https://css-tricks.com/html-for-zip-codes/
+
+### Focus-within
+ - https://dev.to/vtrpldn/grab-your-user-s-attention-with-the-focus-within-css-selector-4d4
 
 ### Validation
 - https://developer.mozilla.org/fr/docs/Web/Guide/HTML/Formulaires/Validation_donnees_formulaire
@@ -104,6 +109,8 @@ https://css-tricks.com/html-for-zip-codes/
 ### Cheat sheet
 - https://www.cxpartners.co.uk/our-thinking/form_design_guidelines_crib_sheet_free/
 
+### Textarea
+- https://css-tricks.com/the-cleanest-trick-for-autogrowing-textareas/
 
 ## Books
 - "Form Design Patterns" by Adam Silver - https://formdesignpatterns.com/
