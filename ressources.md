@@ -79,13 +79,15 @@ title: Ressources
 - https://stegosource.com/how-to-build-html-forms-right-accessibility/
 - https://austingil.com/build-html-forms-right-user-experience/
 - https://www.bram.us/2020/11/04/preventing-double-form-submissions/
+- https://austingil.com/how-to-build-html-forms-right-semantics/
+- https://www.bram.us/2020/11/04/preventing-double-form-submissions/
 
 ### UX
 - https://www.smashingmagazine.com/2018/08/ux-html5-mobile-form-part-1/
 - https://www.smashingmagazine.com/2018/08/ux-html5-mobile-form-part-2/
 - https://uxplanet.org/the-18-must-do-principles-in-the-form-design-fe89d0127c92
 - https://uxplanet.org/10-rules-for-efficient-form-design-e13dc1fb0e03
-- https://adamsilver.io/articles/where-to-put-buttons-in-forms/
+- https://austingil.com/how-to-build-html-forms-right-accessibility/
 
 ### Date
 - https://medium.com/samsung-internet-dev/making-input-type-date-complicated-a544fd27c45a
